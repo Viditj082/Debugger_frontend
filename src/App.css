@@ -1,0 +1,77 @@
+.App {
+  text-align: center;
+  height: 100vh;
+}
+
+.run{
+  cursor: pointer;
+  border-radius:20px;
+  width: 80px;
+  background-color:green;
+  color:white;
+  padding: 0.5rem;
+}
+
+/**/
+
+.container{
+  display:flex;
+  flex-direction: row;
+  height: 75vh;
+  margin-top: 50px;
+}
+
+.bottomContainer{
+  width: 200px;
+  flex:3;
+  display: flex;
+  flex-direction: column;
+}
+
+.boxes{
+  flex:3;
+  border:1px solid green;
+  text-align: start;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.boxes>h3{
+  flex:2;
+  background-color:#00800060;
+  margin-top: 0;
+  padding: 1rem;
+}
+
+.textArea
+{
+  margin-top: 0;
+  flex:8;
+  overflow:auto; 
+  padding:1rem;
+}
+
+.textArea:focus{
+  border: 1px solid #00800050;
+}
+
+.editor
+{
+  overflow: auto;
+  flex: 6;
+  border: 1px solid green;
+  margin: 20px;
+}
+
+.editorText
+{
+  border: none;
+  overflow:auto;
+  min-height: 100%;  
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
