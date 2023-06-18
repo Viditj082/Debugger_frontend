@@ -1,17 +1,48 @@
 import React from 'react'
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import { useContext, useState } from "react"
+import { AppContext } from "../context"
+import map from '../BoilerPlates';
+import Icons from '../Iconpaths';
 
 export default function Navbar() {
+
+
+  const {language,setLanguage,code,setCode}=useContext(AppContext);
+     
+  const handleChange = (event) => {
+    const lang=event.target.value;
+    setLanguage(lang);
+    console.log(lang)
+    // set code to their respective boilerplates
+   
+    setCode(map.get(lang))
+    
+  };
+
   return (
-    <AppBar position="static" style={{background:'#070707'}}>
+
+    <AppBar position="static" style={{padding:'0.5rem 1rem',background:'#161616'} }>
           <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            CodeWiz
-          </Typography>
-          </Toolbar>
+          <img src={require('../logo-no-background.png')} style={{width:'250px',height:'40px'}}/>
+
+          <Select style={{color:'white',marginLeft:'auto',fontSize:'15px',fontStyle:'bold'}}
+          value={language}
+          label="Language"
+          onChange={handleChange}
+        >
+          <MenuItem value={'cpp'}>C++</MenuItem>
+          <MenuItem value={'Java'}>Java</MenuItem>
+          <MenuItem value={'python'}>Python</MenuItem>
+        </Select>
+        
+        <img src={require(`${Icons.get(`${language}`)}`)} style={{width:'40px',height:'40px',marginLeft:'5px'}}/>
+        </Toolbar>
     </AppBar>
   )
+
 }
 

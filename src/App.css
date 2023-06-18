@@ -7,11 +7,15 @@
 .run{
   transition: 0.2s;
   cursor: pointer;
-  border-radius:20px;
+  border-radius:10px;
   width: 80px;
-  background-color:green;
+  background-color:#48b348;
   color:white;
   padding: 0.5rem;
+}
+
+.run:hover{
+  transform: scale(1.02);
 }
 
 /**/

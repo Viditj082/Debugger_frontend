@@ -9,12 +9,19 @@ import Navbar from './components/Navbar';
 import { AppContext } from './context';
 import Editor_s from './components/Editor';
 import LinearProgress from '@mui/material/LinearProgress';
+
 function App() {
+
+  const [code,setCode]=useState('#include <bits/stdc++.h>\n\nusing namespace std;\n\nint main()\n{\ncout<<"Hello World";\nreturn 0;\n}');
+  const [output,setOutput]=useState('');
+  const [input,setInput]=useState('');
+  const [language,setLanguage]=useState('cpp');
+  const [loading,setLoading]=useState(false);
   
   const HandleClick=()=>{
     setLoading(true)
     setTimeout(()=>{},1000);
-     axios.post('http://localhost:5000/run',{
+     axios.post(`http://localhost:5000/run/${language}`,{
         input:input,
         code:code
      }).then((res)=>{
@@ -25,22 +32,21 @@ function App() {
       setOutput(str) 
       setLoading(false)
       // console.log(response)
+     }).catch((error)=>{
+        setLoading(false)
+        setOutput(error.toString())
      })
     
 
   }
 
-  const [code,setCode]=useState('#include <bits/stdc++.h>\n\nusing namespace std;\n\nint main()\n{\n\n return 0;\n}');
-  const [output,setOutput]=useState('');
-  const [input,setInput]=useState('');
-  const [loading,setLoading]=useState(false);
-
   return (
     
-    <AppContext.Provider value={{code,setCode,input,setInput,output,setOutput,loading,setLoading}}>
+    <AppContext.Provider value={{code,setCode,input,setInput,output,setOutput,loading,setLoading,language,setLanguage}}>
     <div className='App'>
     <Navbar/>
-    {loading &&    <LinearProgress color="secondary" />
+    
+    {loading &&  <LinearProgress color="secondary" />
 }
     <div className='container'>
     
