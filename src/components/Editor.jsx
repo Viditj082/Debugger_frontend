@@ -12,7 +12,9 @@ export default function Editor_s() {
     const {code,setCode}=useContext(AppContext);
 
     const handleChange=(e)=>{
-        setCode(e.target.value)
+       const value=e.target.value;
+       setCode(value)
+       localStorage.setItem('code',value)
       }
      
   return (
