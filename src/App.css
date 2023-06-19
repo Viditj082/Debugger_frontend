@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   height: 100vh;
-  background-color: rgb(252, 248, 248);
+  transition: 0.2s;
 }
 
 .run{
@@ -68,11 +68,15 @@
 
 .editor
 {
+  text-align: start;
   overflow: auto;
   flex: 6;
   border: 1px solid green;
   margin: 20px;
   border-radius: 10px;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
 }
 
 .editorText

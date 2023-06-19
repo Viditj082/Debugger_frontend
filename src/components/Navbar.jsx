@@ -7,6 +7,7 @@ import { useContext, useState } from "react"
 import { AppContext } from "../context"
 import map from '../BoilerPlates';
 import Icons from '../Iconpaths';
+import Switch_n from './Switch';
 
 export default function Navbar() {
 
@@ -28,8 +29,10 @@ export default function Navbar() {
     <AppBar position="static" style={{padding:'0.5rem 1rem',background:'#161616'} }>
           <Toolbar>
           <img src={require('../logo-no-background.png')} style={{width:'250px',height:'40px'}}/>
+          
+          <Switch_n/>
 
-          <Select style={{color:'white',marginLeft:'auto',fontSize:'15px',fontStyle:'bold'}}
+          <Select style={{color:'white',marginLeft:'auto',fontSize:'15px',fontStyle:'bold'}} 
           value={language}
           label="Language"
           onChange={handleChange}
@@ -37,6 +40,8 @@ export default function Navbar() {
           <MenuItem value={'cpp'}>C++</MenuItem>
           <MenuItem value={'Java'}>Java</MenuItem>
           <MenuItem value={'python'}>Python</MenuItem>
+          <MenuItem value={'js'}>JavaScript</MenuItem>
+
         </Select>
         
         <img src={require(`${Icons.get(`${language}`)}`)} style={{width:'40px',height:'40px',marginLeft:'5px'}}/>

@@ -7,4 +7,6 @@ map.set('Java','class test{\npublic static void main(String []args)\n{\nSystem.o
 
 map.set('python','print("Hello in Python")');
 
+map.set('js','console.log("Hello in JS")');
+
 export default map;
