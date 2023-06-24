@@ -1,8 +1,8 @@
-import Editor from "react-simple-code-editor";
-import { highlight, languages } from "prismjs/components/prism-core";
-import "prismjs/components/prism-clike";
-import "prismjs/components/prism-javascript";
-import "prismjs/themes/prism.css";
+// import Editor from "react-simple-code-editor";
+// import { highlight, languages } from "prismjs/components/prism-core";
+// import "prismjs/components/prism-clike";
+// import "prismjs/components/prism-javascript";
+// import "prismjs/themes/prism.css";
 import { useContext, useState } from "react"
 import { AppContext } from "../context"
 import { useCallback } from "react";
@@ -22,37 +22,9 @@ import MenuItem from '@mui/material/MenuItem';
 export default function Editor_s() {
 
     const {code,setCode,theme,setTheme}=useContext(AppContext);
-    const [editorTheme,setEditorTheme]=useState('Github Light');
+    const [editorTheme,setEditorTheme]=useState('vscode');
     
-    const getTheme=(name)=>{
-      if(name=='vscode')
-      {return vscodeDarkInit({
-        settings: {
-          caret: '#c6c6c6',
-          fontFamily: 'monospace',
-        }
-      });
-    }
     
-    if(name=='Github Light')
-    {return githubLightInit({
-      settings: {
-        caret: '#c6c6c6',
-        fontFamily: 'monospace',
-      }
-    });
-  }
-
-  if(name=='Github Dark')
-  {return githubDarkInit({
-    settings: {
-      caret: '#c6c6c6',
-      fontFamily: 'monospace',
-    }
-  });
-}
-
-    }
       const onChange = useCallback((value, viewUpdate) => {
         setCode(value)
     }, []);
@@ -82,6 +54,35 @@ export default function Editor_s() {
 }
 
 
+const getTheme=(name)=>{
+  if(name=='vscode')
+  {return vscodeDarkInit({
+    settings: {
+      caret: '#c6c6c6',
+      fontFamily: 'monospace',
+    }
+  });
+}
+
+if(name=='Github Light')
+{return githubLightInit({
+  settings: {
+    caret: '#c6c6c6',
+    fontFamily: 'monospace',
+  }
+});
+}
+
+if(name=='Github Dark')
+{return githubDarkInit({
+settings: {
+  caret: '#c6c6c6',
+  fontFamily: 'monospace',
+}
+});
+}
+
+}
 
 // simple-code-editor in case codemirror fails:/
 {/* <Editor className='editorText'

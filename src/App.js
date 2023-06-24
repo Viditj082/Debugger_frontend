@@ -19,8 +19,13 @@ function App() {
   const [theme,setTheme]=useState(0);
 
   const HandleClick=()=>{
+
     setLoading(true)
-    setTimeout(()=>{},1000);
+
+    // setTimeout(()=>{},1000);
+    // http://localhost:5000                  -->local
+    // https://debugger-api.onrender.com      -->web service
+
      axios.post(`http://localhost:5000/run/${language}`,{
         input:input,
         code:code
@@ -43,7 +48,7 @@ function App() {
   return (
     
     <AppContext.Provider value={{code,setCode,input,setInput,output,setOutput,loading,setLoading,language,setLanguage,theme,setTheme}}>
-    <div className='App' style={theme===false?{background:'white'}:{background:'#161616',color:'white'}}>
+    <div className='App' style={theme===false?{background:'white'}:{background:'#1D1E22',color:'white'}}>
     <Navbar/>
     
     {loading &&  <LinearProgress color="secondary" />
